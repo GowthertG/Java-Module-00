@@ -17,7 +17,7 @@ public class Program {
     Scanner Obj = new Scanner(System.in);
     int number = Obj.nextInt();
     if (number <= 1)
-      System.out.println("IllegalArgument");
+      System.err.println("IllegalArgument");
     FindPrime(number, --number);
     Obj.close();
   }
