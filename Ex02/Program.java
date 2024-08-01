@@ -29,6 +29,7 @@ public class Program {
       number = Obj.nextInt();
       if (number == 42) {
         System.out.println("Count of coffee-request : " + counter);
+        Obj.close();
         return;
       }
       if (isPrime(sum(number)) == 0)
