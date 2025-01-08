@@ -1,39 +1,45 @@
 import java.util.Scanner;
 
-public class Program {
+public class ProgramTwo {
+  static int input;
+  static int number;
+  static int counter;
 
-  public static int isPrime(int number) {
+  static int IsPrime() {
+    if ((number % 6) == 1 || (number % 6) == 5) {
 
-    int index = number - 1;
-    while (number % index-- != 0 && index >= 1)
-      ;
-    return (index);
+      int PrimeDiveder = number - 1;
+      while (PrimeDiveder > 1) {
+        if (number % PrimeDiveder == 0)
+          return 0;
+        PrimeDiveder--;
+      }
+      if (PrimeDiveder == 1)
+        return 1;
+    }
+    return 0;
+
   }
 
-  public static int sum(int number) {
-    int sum = 0;
-    while (number > 10) {
-      sum += number % 10;
-      number /= 10;
+  static void calculateNumber() {
+    while (input >= 10) {
+      number += input % 10;
+      input /= 10;
     }
-    return (sum + number);
+    number += input;
   }
 
   public static void main(String[] args) {
-
-    int counter = 0;
-    Scanner Obj = new Scanner(System.in);
-    int number = 0;
+    Scanner ObjectIn = new Scanner(System.in);
     while (true) {
-      System.out.print("-> ");
-      number = Obj.nextInt();
-      if (number == 42) {
-        System.out.println("Count of coffee-request : " + counter);
-        Obj.close();
-        return;
-      }
-      if (isPrime(sum(number)) == 0)
-        counter++;
+      System.out.print("---> ");
+      input = ObjectIn.nextInt();
+      if (input == 42)
+        break;
+      calculateNumber();
+      counter += IsPrime();
     }
+    System.out.println("Count of coffe-request : " + counter);
+    ObjectIn.close();
   }
 }
